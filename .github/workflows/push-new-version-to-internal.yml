@@ -1,5 +1,3 @@
-workflow name: Push new version to Internal
-
 on:
   workflow_dispatch:
 
