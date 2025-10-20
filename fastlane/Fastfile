@@ -1,11 +1,12 @@
-fastlane platform :android do
+platform :android do
+  desc "Upload AAB to Internal track"
   lane :upload_to_internal do
     supply(
-      json_key_data: ENV["GOOGLE_PLAY_JSON_KEY"], # або замість ENV — просто шлях до створеного JSON-файлу з ключем від Google Cloud Console
-      package_name: "com.beargrizsl.ibershfor",       # Bundle-ID створеного в консолі андроїд додатку
-      aab: "build_output/com.beargrizsl.ibershfor_2.aab", # шлях до aab після завантаження його туди у workflow з GitHub Releases
+      json_key_data: ENV["GOOGLE_PLAY_JSON_KEY"], # можно также указать путь к .json
+      package_name: "com.beargrizsl.ibershfor",
+      aab: "build_output/com.beargrizsl.ibershfor_2.aab",
       track: "internal",
-      release_status: "draft",                 # обов’язково, щоб реліз став видимий
+      release_status: "draft",
       skip_upload_changelogs: false,
       skip_upload_images: true,
       skip_upload_screenshots: true,
